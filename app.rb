@@ -17,22 +17,27 @@ require 'bundler/setup'
   
   get '/visit' do 
     erb :visit
-  
   end
 
   get '/pricing' do
     erb :pricing
-
   end
 
-  post '/visit' do
-    erb "OK"
-  end
-
+  
   get '/contacts' do
     'Phone: 111222'
   end
 
   post '/about' do
      "OK"
+  end
+
+  post '/visit' do
+    @username = params[:username]
+    @phone = params[:phone]
+    @datetime = params[:datetime]
+    @barber = params[:barber]
+    
+
+    erb "OK, username is #{@username}, #{@phone}, #{@datetime}, #{@barber}"
   end
