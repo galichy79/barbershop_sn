@@ -6,16 +6,10 @@ require 'bundler/setup'
 
 
   
-  
   get '/' do 
     erb :index
   end
-  
- 
- 
- 
-  
-  
+    
   get '/about' do 
     erb :about
   
@@ -29,4 +23,16 @@ require 'bundler/setup'
   get '/pricing' do
     erb :pricing
 
- end
+  end
+
+  post '/visit' do
+    erb "OK"
+  end
+
+  get '/contacts' do
+    'Phone: 111222'
+  end
+
+  post '/about' do
+     "OK"
+  end
