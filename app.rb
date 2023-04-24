@@ -11,6 +11,7 @@ require 'bundler/setup'
   end
     
   get '/about' do 
+    @error = 'something wrong!'
     erb :about
   
   end
@@ -38,6 +39,11 @@ require 'bundler/setup'
     @datetime = params[:datetime]
     @barber = params[:barber]
     @color = params[:color]
+
+    if @username == ''
+      @error = 'Введите имя'
+      return erb :visit
+    end
     
 
     erb "OK, username is #{@username}, #{@phone}, #{@datetime}, #{@barber}, #{@color}"
