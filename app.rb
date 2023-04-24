@@ -40,22 +40,25 @@ require 'bundler/setup'
     @barber = params[:barber]
     @color = params[:color]
 
-    if @username == ''
-      @error = 'Введите имя'
-      r
-    end
+    hh = { :username => 'Введите имя',
+           :phone => 'Введите телефон', 
+           :datetime => 'Введите дату и время' }
 
-    if @phone == ''
-      @error = 'Введите ваш номер телефона'
-      
-    end
 
-    if @error !=''
-      @error = 'Неправильная дата и время'
-    end
 
-    if @error != ''
-      return erb :visit
+    hh.each do |key, value|
+
+      # если параметр пуст
+      if params[key] == ''
+        # переменной error присвоить value из хеша hh
+        # (а value из хеша hh это сообщение об ошибке)
+        # т.e. переменной error присвоить сообщение об ошибке
+        @error = hh[key]
+
+        # вернуть представление visit
+        return erb :visit
+          
+      end
     end
     
 
