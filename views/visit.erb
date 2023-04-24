@@ -4,7 +4,7 @@
 
 </head>
 <body>
-<h2></h2><br><br><br>
+<h2></h2><br><br>
 <h2 class="animate__animated animate__backInDown">На этой странице вы можете записаться к нам в Barber Shop</h2>
 
 
@@ -12,17 +12,17 @@
 <form action="/visit" method="POST" role="form">
   <div class="mb-3">
     <label >Ваше имя</label>
-    <input name="username" type="text" class="form-control" placeholder="Введите ваше имя">
+    <input name="username" type="text" class="form-control" placeholder="Введите ваше имя" value="<%= @username %>">
     
   </div>
   <div class="mb-3">
     <label >Ваш телефон</label>
-    <input name="phone" type="text" class="form-control" placeholder="Введите ваш номер телефона">
+    <input name="phone" type="text" class="form-control" placeholder="Введите ваш номер телефона" value="<%= @phone %>">
     
   </div>
   <div class="mb-3">
     <label >Когда вас ждать?</label>
-    <input id="aaa" name="datetime" type="text" class="form-control" placeholder="Введите дату и время">
+    <input id="aaa" name="datetime" type="text" class="form-control" placeholder="Введите дату и время" value="<%= @datetime %>">
   </div> <br>
 
   </div>
@@ -73,6 +73,8 @@ $(function(){
 
 });
 </script>
+
+
 
 
 
