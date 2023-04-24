@@ -46,20 +46,29 @@ require 'bundler/setup'
 
 
 
-    hh.each do |key, value|
+    @error = hh.select {|key,_| params[key] == ""}.values.join(", ")
+
+    if @error != ''
+      return erb :visit
+    end
+
+
+
+
+    # hh.each do |key, value|
 
       # если параметр пуст
-      if params[key] == ''
+      # if params[key] == ''
         # переменной error присвоить value из хеша hh
         # (а value из хеша hh это сообщение об ошибке)
         # т.e. переменной error присвоить сообщение об ошибке
-        @error = hh[key]
+        #@error = hh[key]
 
         # вернуть представление visit
-        return erb :visit
+        # return erb :visit
           
-      end
-    end
+      # end
+    # end
     
 
     erb "OK, username is #{@username}, #{@phone}, #{@datetime}, #{@barber}, #{@color}"
