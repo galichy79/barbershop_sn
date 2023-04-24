@@ -42,6 +42,19 @@ require 'bundler/setup'
 
     if @username == ''
       @error = 'Введите имя'
+      r
+    end
+
+    if @phone == ''
+      @error = 'Введите ваш номер телефона'
+      
+    end
+
+    if @error !=''
+      @error = 'Неправильная дата и время'
+    end
+
+    if @error != ''
       return erb :visit
     end
     
