@@ -5,7 +5,18 @@ require 'sinatra/reloader'
 require 'bundler/setup'
 require 'sqlite3'
 
-db = SQLite3::Database.new 'test.sqlite'
+configure do 
+  @db = SQLite3::Database.new 'barbershop.db'
+  @db.execute 'CREATE TABLE IF NOT EXISTS "Users" (
+    "id"	INTEGER,
+    "username"	TEXT,
+    "phone"	TEXT,
+    "datestamp"	TEXT,
+    "barber"	TEXT,
+    "color"	TEXT,
+    PRIMARY KEY("id" AUTOINCREMENT)
+  )'
+end
 
 
   
