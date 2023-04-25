@@ -29,10 +29,10 @@
   <div class="mb-3">
     <label >Ваш парикмахер:</label>
     <select name="barber" class="form-select" aria-label="Default select example">
-    <option selected>Open this select menu</option>
-    <option>Марина</option>
-    <option>Светлана</option>
-    <option>Анна</option>
+    <option>Open this select menu</option>
+    <option <%= @barber == 'Марина' ? 'selected' : ''%>>Марина</option>
+    <option <%= @barber == 'Светлана' ? 'selected' : ''%>>Светлана</option>
+    <option <%= @barber == 'Анна' ? 'selected' : ''%>>Анна</option>
     </select>
   </div><br><br>
 
