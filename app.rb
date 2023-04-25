@@ -3,6 +3,9 @@ require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
 require 'bundler/setup'
+require 'sqlite3'
+
+db = SQLite3::Database.new 'test.sqlite'
 
 
   
