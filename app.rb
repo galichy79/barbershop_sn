@@ -54,6 +54,10 @@ end
      "OK"
   end
 
+  get '/showusers' do
+    erb "Hello World"
+  end
+
   post '/visit' do
     @username = params[:username]
     @phone = params[:phone]
@@ -96,6 +100,4 @@ end
     erb "OK, username is #{@username}, #{@phone}, #{@datetime}, #{@barber}, #{@color}"
   end
 
-  # def get_db
-  #   return SQLite3::Database.new 'barbershop.db'
-  # end
+  
