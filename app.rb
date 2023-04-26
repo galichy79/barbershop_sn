@@ -5,9 +5,16 @@ require 'sinatra/reloader'
 require 'bundler/setup'
 require 'sqlite3'
 
+# определение метода get_db
+def get_db
+  db = SQLite3::Database.new "barbershop.db"
+  db.results_as_hash = true
+  return db
+end
+
 configure do 
-  @db = SQLite3::Database.new 'barbershop.db'
-  @db.execute 'CREATE TABLE IF NOT EXISTS "Users" (
+  db = get_db
+  db.execute 'CREATE TABLE IF NOT EXISTS "Users" (
     "id"	INTEGER,
     "username"	TEXT,
     "phone"	TEXT,
@@ -83,7 +90,12 @@ end
           
       # end
     # end
-    
+  db = get_db
+  db.execute 'insert into Users (username, phone, datestamp, barber,color) values (?, ?, ?, ?, ?)', [@username, @phone, @datetime, @barber, @color]
 
     erb "OK, username is #{@username}, #{@phone}, #{@datetime}, #{@barber}, #{@color}"
   end
+
+  # def get_db
+  #   return SQLite3::Database.new 'barbershop.db'
+  # end
