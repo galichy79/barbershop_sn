@@ -9,6 +9,7 @@
 
 
 
+
 <form action="/visit" method="POST" role="form">
   <div class="mb-3">
     <label >Ваше имя</label>
@@ -22,7 +23,7 @@
   </div>
   <div class="mb-3">
     <label >Когда вас ждать?</label>
-    <input id="aaa" name="datetime" type="text" class="form-control" placeholder="Введите дату и время" value="<%= @datetime %>">
+    <input id="datetimepicker" name="datetime" type="text" class="form-control" placeholder="Введите дату и время" value="<%= @datetime %>">
   </div> <br>
 
   </div>
@@ -61,17 +62,21 @@
  
   
 </form>
-<script type="text/javascript">
-$('#aaa').css('background-color', 'yellow');
-</script>
+
+
 
 
 
 <script type="text/javascript">
 $(function(){
-   $('#color').simplecolorpicker();
+$('#color').simplecolorpicker();
 
+$('#datetimepicker').datetimepicker();
+  
 });
+
+
+
 </script>
 
 
