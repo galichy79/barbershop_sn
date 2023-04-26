@@ -25,6 +25,16 @@ configure do
   )'
 end
 
+db = get_db
+
+db.execute 'select * from Users' do |row|
+  print row['username']
+  print "\t-\t"
+  print row['datestamp']
+  puts '==='
+  
+end
+
 
   
   get '/' do 
@@ -54,9 +64,15 @@ end
      "OK"
   end
 
-  get '/showusers' do
+  get '/showusers' do 
+    db = get_db
+
+    @results = db.execute 'select * from Users order by id desc'
+   
     erb :showusers
   end
+
+  
 
   post '/visit' do
     @username = params[:username]
@@ -99,5 +115,7 @@ end
 
     erb "OK, username is #{@username}, #{@phone}, #{@datetime}, #{@barber}, #{@color}"
   end
+
+  
 
   
