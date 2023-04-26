@@ -47,7 +47,7 @@ end
 
   
   get '/contacts' do
-    'Phone: 111222'
+    erb 'Phone: 111222'
   end
 
   post '/about' do
@@ -55,7 +55,7 @@ end
   end
 
   get '/showusers' do
-    erb "Hello World"
+    erb :showusers
   end
 
   post '/visit' do
