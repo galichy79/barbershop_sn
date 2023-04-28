@@ -52,15 +52,15 @@ configure do
   seed_db db, ['Марина', 'Светлана', 'Анна', 'Людмила']
 end
 
-db = get_db
+# db = get_db
 
-db.execute 'select * from Users' do |row|
-  print row['username']
-  print "\t-\t"
-  print row['datestamp']
-  puts '==='
+# db.execute 'select * from Users' do |row|
+#   print row['username']
+#   print "\t-\t"
+#   print row['datestamp']
+#   puts '==='
   
-end
+# end
 
 
   
@@ -69,7 +69,7 @@ end
   end
     
   get '/about' do 
-    @error = 'something wrong!'
+    #@error = 'something wrong!'
     erb :about
   
   end
@@ -140,7 +140,7 @@ end
   db = get_db
   db.execute 'insert into Users (username, phone, datestamp, barber,color) values (?, ?, ?, ?, ?)', [@username, @phone, @datetime, @barber, @color]
 
-    erb "OK, username is #{@username}, #{@phone}, #{@datetime}, #{@barber}, #{@color}"
+    erb "<h2>Спасибо, вы записались.</h2>"
   end
 
   
